@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View filter</title>
+</head>
+<body>
+<h1>View filter: <span th:text="${filter.name}"></span></h1>
+<a href="/filters">Filter list</a>
+<table border="1">
+    <tr>
+        <th>Name</th>
+    </tr>
+    <th:block th:each="filter : ${filters}">
+        <tr>
+            <td th:text="${filter.name}"></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

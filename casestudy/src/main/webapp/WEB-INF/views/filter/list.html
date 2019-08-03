@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+</head>
+<body>
+<a href="/create-note">Create new filter</a>
+<h1>Filter</h1>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="filter : ${filters}">
+        <tr>
+            <td th:text="${filter.name}"></td>
+            <td><a th:href="@{/edit-filter/__${filter.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete-filter/__${filter.id}__ }">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

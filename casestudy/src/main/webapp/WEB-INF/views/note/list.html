@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+</head>
+<body>
+<h1>Notes</h1>
+<a th:href="@{/create-note}">Add Note</a>
+    <table border="1px" style=" width: 500px">
+        <tr>
+            <td>STT</td>
+            <td>Title</td>
+            <td>Content</td>
+            <td>Filter</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        <th:block th:each="note:${notes}">
+            <tr>
+                <td></td>
+                <td th:text="${note.title}"></td>
+                <td th:text="${note.content}"></td>
+                <td th:text="${note.filter.name}"></td>
+                <td><a th:href="@{/edit-note/__${note.id}__}">Edit</a></td>
+                <td><a th:href="@{/delete-note/__${note.id}__}">Delete</a></td>
+            </tr>
+        </th:block>
+    </table>
+    <!--    <div>-->
+    <!--        <a th:href="@{'/blogs'(page=${blogs.number - 1})}" th:if="${blogs.hasPrevious()}">Previous</a>-->
+    <!--        <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>-->
+    <!--        <a th:href="@{'/blogs'(page=${blogs.number + 1})}" th:if="${blogs.hasNext()}">Next</a>-->
+    <!--    </div>-->
+
+</body>
+</html>
